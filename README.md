@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ParkAdmin Web - Panel Administrativo para Estacionamientos
 
-## Getting Started
+ParkAdmin Web es una plataforma administrativa desarrollada con React, Prisma y PostgreSQL, diseñada para centralizar y visualizar información operativa y contable de estacionamientos conectados a servidores locales on-premise.
 
-First, run the development server:
+El proyecto nace como solución para clientes que cuentan con sistemas de parking instalados localmente, pero que no tienen acceso directo a la información desde internet. En muchos casos, el área contable o administrativa necesita consultar cobros diarios, recaudación por operador, comprobantes electrónicos emitidos y movimientos del estacionamiento sin depender físicamente de la caseta o del servidor local.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A través de este panel web, la información de diferentes estacionamientos puede ser expuesta de forma segura y ordenada mediante APIs, permitiendo que los clientes accedan visualmente a los datos más importantes de sus operaciones en tiempo real.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Objetivo del proyecto
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El objetivo principal de ParkAdmin Web es brindar una herramienta moderna, centralizada y accesible para la supervisión de estacionamientos, conectando servidores de parking on-premise con una plataforma web administrativa.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+De esta manera, los clientes pueden revisar información clave del negocio desde cualquier lugar, sin necesidad de ingresar directamente al servidor local del estacionamiento.
 
-## Learn More
+## Problema que resuelve
 
-To learn more about Next.js, take a look at the following resources:
+Muchos sistemas de estacionamiento trabajan de forma local dentro de cada sede, lo que limita el acceso remoto a la información operativa y contable.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Esto genera dificultades para:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Revisar la recaudación diaria.
+- Consultar los cobros realizados por operador.
+- Verificar comprobantes electrónicos emitidos.
+- Supervisar varias sedes desde un solo lugar.
+- Acceder a reportes sin depender del personal de caseta.
+- Centralizar información de estacionamientos independientes.
 
-## Deploy on Vercel
+ParkAdmin Web permite solucionar este problema mediante un panel administrativo conectado por APIs a los servidores locales de parking.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Características principales
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Panel administrativo web moderno y responsive.
+- Consulta de información en tiempo real desde servidores de estacionamiento.
+- Integración mediante APIs con sistemas de parking on-premise.
+- Visualización de cobros diarios.
+- Consulta de recaudación por operador o caja.
+- Revisión de comprobantes electrónicos emitidos.
+- Control visual de información operativa por estacionamiento.
+- Soporte para múltiples sedes o clientes.
+- Arquitectura preparada para crecimiento y nuevas integraciones.
+- Base de datos centralizada con PostgreSQL.
+- Gestión de datos mediante Prisma ORM.
+- Interfaz clara, profesional y fácil de usar.
+
+## Casos de uso
+
+Este sistema está pensado para empresas, administradores y áreas contables que necesitan consultar información del estacionamiento sin acceder directamente al servidor local.
+
+Algunos casos de uso son:
+
+- El área contable puede revisar los cobros del día.
+- El cliente puede consultar los CPE emitidos.
+- El administrador puede supervisar varias playas de estacionamiento.
+- La empresa puede centralizar información de diferentes sedes.
+- Los operadores pueden mantener el sistema local, mientras la gerencia revisa datos desde la web.
+
+## Arquitectura general
+
+El sistema está diseñado para trabajar con estacionamientos que operan con servidores locales. Estos servidores no siempre están expuestos directamente a internet, por lo que el panel web se conecta mediante APIs o servicios intermedios que permiten obtener la información necesaria de forma controlada.
+
+Flujo general:
+
+```text
+Servidor local de parking
+        ↓
+API / Servicio de conexión
+        ↓
+Backend del panel administrativo
+        ↓
+Base de datos PostgreSQL
+        ↓
+Panel Web React
+        ↓
+Cliente / Área contable / Administrador
